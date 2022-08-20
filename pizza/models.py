@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 
 class Ingredientes(models.Model):
     nome = models.CharField(max_length=255)
+    pizza = models.ForeignKey("Pizza", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
@@ -31,7 +32,7 @@ class Comentario(models.Model):
 
     class Meta:
         verbose_name = 'comentario'
-        verbose_name_plural = 'comentarios'
+        verbose_name_plural = 'comentarios' 
 
 
     
