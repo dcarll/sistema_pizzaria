@@ -63,7 +63,13 @@ class Pedido(Base):
     usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     pizza = models.ManyToManyField(Pizza, null=False, blank=False )
     observacao = models.TextField(blank=True)
-    valor_total = models.DecimalField(max_digits=5, decimal_places=2)
+    @property
+    def valor_total():
+        pizza = self.pizza.all()
+        preco_total = 0,0
+        for p in pizza:
+            preco_total += pizza.preco
+        return preco_total
 
     def __str__(self):
         return self.titulo
