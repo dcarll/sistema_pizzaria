@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'blog',
     'accounts',
 
-    'bootstrap4'
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

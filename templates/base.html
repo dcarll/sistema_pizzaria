@@ -1,37 +1,48 @@
 {% load static %}
 {% load bootstrap4 %}
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis/css?family=Source+Sans+Pro:400" rel="stylesheet">
-	<!--{% bootstrap_css %}-->
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<title>{% block title %}{% endblock title 	%}</title>
-</head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock title 	%}</title>
+		{% bootstrap_css%}
+		<link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
+		<script src="https://kit.fontawesome.com/c9c9868fe9.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			
+			<!--bloco nav-->
+			{% block nav %}			
+				{% include 'parciais/_nav.html'%}			
+			{% endblock nav %}
+			<!--endblok nav-->
 
-	{% block header %}
-		{% include 'parciais/_header.html'%}
-	{% endblock header %}
-
-	<div class="container border">
-		{% block content %}
-		{% endblock content %}
-	</div>
-	
-
-	{% block footer%}
-		{% include 'parciais/_footer.html' %}
-	{% endblock footer%}
-
-	
-	{% bootstrap_javascript jquery='full' %}
-
-
-</body>
+			<!--bloco header-->
+			{% block header %}			
+				{% include 'parciais/_header.html'%}
+			{% endblock header%}
+			<!--endblock header-->
+			
+			<!--bloco conteudo-->
+			{% block content %}
+				{% include 'parciais/_content.html'%}					
+			{% endblock content %}
+			<!--enfblock conteudo-->		
+			
+			
+			<!--bloco footer-->
+			{% block footer %}			
+				{% include 'parciais/_footer.html' %}			
+			{% endblock footer %}	
+			<!--endblock footer-->				
+			
+			
+		</div>
+		{% bootstrap_javascript jquery='full' %}		
+	</body>
 </html>
 

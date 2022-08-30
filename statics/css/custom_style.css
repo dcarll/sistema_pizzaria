@@ -1,0 +1,21 @@
+nav{
+  background-color: rgb(17, 15, 24);
+}
+
+header{
+  background-color: rgb(224, 224, 211);
+}
+
+
+
+session div div {
+  background-color: rgb(153, 153, 141);
+}
+
+footer{
+  background-color: rgb(65, 67, 68);
+  height: 50px;
+  font-size: 25px;
+  color: white;
+  
+}
