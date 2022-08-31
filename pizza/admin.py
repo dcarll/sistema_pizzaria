@@ -1,30 +1,46 @@
 from django.contrib import admin
 
-from .models import Pedido, Pizza, Comentario, Ingredientes
+from .models import Pedido, Pizza, Comentario, Ingredientes, Avaliacao
 
 # Register your models here.
 
-admin.site.register(Pedido)
-admin.site.register(Pizza)
+#admin.site.register(Pedido)
+#admin.site.register(Pizza)
 admin.site.register(Comentario)
 admin.site.register(Ingredientes)
+admin.site.register(Avaliacao)
 
-"""
+@admin.register(Pizza)
 class PizzaAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'get_ingrediantes', 'descricao_pizza')
+    list_display = ('nome', 'get_ingredientes', 'descricao_pizza')
     
-    def get_ingrediantes(self, request):
-        ing = request.objects.get('ingredientes')
-        return f'{self.ing[:50]}'
+    def get_ingredientes(self, obj):
+
+        return ", ".join([p.nome for p in obj.ingredientes.all()])
+    
+    get_ingredientes.short_description = 'Ingredientes'
 
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'usuario', 'pizza', 'get_texto')
+    list_display = ('titulo', 'usuario', 'get_pizza', 'preco_total')
 
-    def get_texto(self, request):
-        obs = request.objects.get('observacao')
-        return f'{self.obs[:50]}'
+    preco_total = 0
 
+    def get_preco_total(self, obj):
+        for p in obj.pizza.preco:
+            self.preco_total += int(p.preco)
+        return self.preco_total
+
+
+
+
+    def get_pizza(self, obj):
+        return " ,".join([p.nome for p in obj.pizza.all()])
+    
+    get_pizza.short_description = "Pizza"
+
+    
+"""
 @admin.register(Comentario)
 class ComentarioAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'pizza', 'usuario')
