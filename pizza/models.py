@@ -61,7 +61,7 @@ class Comentario(Base):
 class Pedido(Base):
     titulo = models.CharField(max_length=255)
     usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    pizza = models.ManyToManyField(Pizza, null=False, blank=False )
+    pizza = models.ManyToManyField(Pizza)
     observacao = models.TextField(blank=True)
     @property
     def valor_total():
@@ -80,7 +80,7 @@ class Pedido(Base):
 
 class Avaliacao(Base):
     tituto = models.CharField(max_length=255)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='usuario_pizza')
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     descricao = models.TextField()
     nota = models.DecimalField(max_digits=3, decimal_places=2)
