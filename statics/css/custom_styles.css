@@ -1,0 +1,36 @@
+body{
+  background-color: rgb(190, 186, 194);
+  font-family: 'Tangerine', serif;
+}
+
+nav{
+  font-family: "Sofia", sans-serif;
+  padding: 2px;
+  background-color: rgb(41, 44, 54);
+  
+}
+
+.nav-logo{
+  font-size: 35px;
+  color: rgb(129, 89, 15);
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 15%;
+  
+}
+
+.nav-font{
+  font-size: 20px;
+  color: rgb(10, 201, 74);
+  
+}
+
+footer{
+  font-family: "Sofia", sans-serif;
+  padding: 2px;
+  background-color: rgb(41, 44, 54);
+  color: aliceblue;
+}
+
+  
