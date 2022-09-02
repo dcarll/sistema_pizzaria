@@ -71,13 +71,12 @@ class Pizza(Base):
             quality=50
         )
 
-        def save(self, *args, **kwargs):        
-            if not self.slug:
-                slug = f'{slugify(self.nome)}'
-                self.slug = slug
-
+    def save(self, *args, **kwargs):        
+        if not self.slug:
+            slug = f'{slugify(self.nome)}'
+            self.slug = slug
         super().save(*args, **kwargs)
-
+        
         max_image_size = 800
 
         if self.imagem:
@@ -97,5 +96,6 @@ class Pizza(Base):
 
     def __str__(self):
         return self.nome
+    
 
     

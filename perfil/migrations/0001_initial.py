@@ -10,27 +10,25 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('produto', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('endereco', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Avaliacao',
+            name='Perfil',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('criado', models.DateTimeField(auto_now_add=True)),
                 ('publicado', models.DateTimeField(auto_now=True)),
                 ('modificado', models.DateTimeField(auto_now=True)),
-                ('tituto', models.CharField(max_length=255)),
-                ('descricao', models.TextField()),
-                ('nota', models.DecimalField(decimal_places=2, max_digits=3)),
-                ('pizza', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='produto.pizza')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='usuario', to=settings.AUTH_USER_MODEL)),
+                ('cpf', models.CharField(max_length=11)),
+                ('endereco', models.ManyToManyField(to='endereco.endereco')),
+                ('nome', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'verbose_name': 'Avaliação',
-                'verbose_name_plural': 'Avaliações',
+                'verbose_name': 'Pefil',
+                'verbose_name_plural': 'Perfis',
             },
         ),
     ]

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'perfil',
     'pedido',
     'comentario',
+    'endereco',
     
     
     'avaliacao',
