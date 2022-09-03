@@ -54,7 +54,7 @@ class Endereco(Base):
         verbose_name_plural = 'Endereços'
 
     def __str__(self):
-        return f'{self.rua}, {self.cep}
+        return f'{self.rua}, {self.cep}'
 
 
     def clean(self):
