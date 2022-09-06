@@ -1,3 +1,4 @@
+'''
 from django.contrib import admin
 
 from .models import Pedido, Pizza, Comentario, Ingredientes, Avaliacao
@@ -51,3 +52,5 @@ class ComentarioAdmin(admin.ModelAdmin):
 class IngredientesAdmin(admin.ModelAdmin):
     list_display = ('nome', 'descricao')
 """
+
+'''
